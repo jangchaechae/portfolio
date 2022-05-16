@@ -1,0 +1,675 @@
+@charset "utf-8";
+
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+
+@font-face {
+    font-family: 'Hahmlet-Black';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2110@1.0/Hahmlet-Black.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Noto Sans KR', sans-serif;
+
+}
+
+
+.html {
+    scroll-behavior: smooth;
+}
+
+body {
+    width: 100%;
+    overflow-x: hidden;
+    -ms-overflow-style: none;
+
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+ul,
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.fix,
+.fix::before,
+.fix::after {
+    clear: both;
+    content: '';
+    display: block;
+}
+
+.header h1::before {
+    content: '';
+}
+
+.header h1.skills::before {
+    content: 'skills';
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+}
+.header h1.home::before {
+    content: 'home';
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+}
+.header h1::before{
+    content: 'home';
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+}
+.header h1.home::before {
+    content: 'home';
+}
+.header h1.aboutme::before {
+    content: 'aboutme';
+}
+
+.header h1.skills::before {
+    content: 'skills';
+}
+
+/* h1 {
+    border: 3px solid black;
+    border-radius: 50%;
+    width: 180px;
+    height: 80px;
+    margin-left: 20px;
+
+} */
+
+.nav {
+    display: flex;
+}
+
+.nav ul {
+    display: flex;
+    margin-right: 20px;
+    position: relative;
+}
+
+.nav ul li {}
+
+.nav ul li a {
+    width: 95px;
+    /* border: 1px solid red; */
+    display: block;
+    height: 40px;
+    padding: 10px;
+    font-size: 14px;
+    text-align: center;
+    position: relative;
+}
+
+/* .nav ul li a:hover{
+    border-bottom: 2px solid #f7f096;
+
+} */
+.nav ul li a::after {
+    content: '';
+    position: absolute;
+    background-color: #f7f096;
+    height: 2px;
+    width: 0;
+    bottom: 0;
+    transition: 0.7s;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.nav ul li a:hover::after {
+    width: 70%;
+}
+
+.content {
+    height: 100vh;
+}
+
+.bg1 {
+    background-color: royalblue;
+    height: 100vh;
+    display: flex;
+}
+
+.bg1>div {
+    width: 50%;
+    height: 650px;
+}
+
+.header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    z-index: 100000;
+}
+
+.header h1 {
+    border: 3px solid black;
+    border-radius: 50%;
+    width: 180px;
+    height: 80px;
+    margin-left: 20px;
+    position: relative;
+}
+
+.me {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.smile {
+    position: absolute;
+    top: 250px;
+    left: -220px;
+    animation: smile 3s cubic-bezier(0.42, 0, 0.15, 0.95) infinite alternate;
+}
+
+@keyframes smile {
+    0% {
+        top: 200px;
+        left: -150px
+    }
+
+    50% {
+        top: 0;
+        left: 0;
+    }
+
+    100% {
+        top: 250px;
+        left: -220px;
+    }
+}
+
+.me h2 {
+    width: 400px;
+    margin-bottom: 20px;
+    font-size: 3em;
+    position: relative;
+    color: white;
+    /* -webkit-text-stroke: 2px #383d52; */
+    /* 텍스트 스트로그 만들기 */
+    text-transform: uppercase;
+}
+
+
+.me h2::before {
+    content: attr(data-text);
+    /* attr을 이용하여 속성 가져오기 */
+    /* html에서 data-text라는 속성을 넣어서 그속성 가져옴. */
+    /* content: 'ABC'; */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    color: royalblue;
+    /* -webkit-text-stroke: 0em #383d52; */
+    border-right: 2px solid royalblue;
+    overflow: hidden;
+    animation: ani 5s linear infinite;
+}
+
+@keyframes ani {
+
+    0%,
+    10%,
+    100% {
+        width: 0;
+    }
+
+    70%,
+    90% {
+        width: 100%;
+    }
+
+}
+
+.me p {
+    font-size: 18px;
+}
+
+
+/* .header h1 {
+    border: 3px solid black;
+    border-radius: 50%;
+    width: 180px;
+    height: 80px;
+    margin-left: 20px;
+}
+
+.header h1::before {
+    content: 'Portfolio';
+    position: absolute;
+    top: 0;
+    left: 40px;
+}
+
+.header .nav {
+    display: flex;
+}
+
+.header ul {
+    display: flex;
+}
+
+.header ul li a {
+    display: block;
+    line-height: 70px;
+    padding-left: 10px;
+}
+
+.me p {
+    height: 700px;
+    border: 1px solid red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+
+}
+
+.me div {
+    font-size: 50px;
+    height: 200px;
+}
+
+.me .smile {
+    display: block;
+    position: absolute;
+    top: 100px;
+    left: 500px;
+} */
+
+
+
+.bg2 {
+    background-color: rosybrown;
+    position: relative;
+
+}
+
+.info-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 800px;
+}
+
+.info-box img {
+    width: 600px;
+    height: 600px;
+    background: #f7f096;
+    border-radius: 50%;
+    margin-right: 50px;
+}
+
+
+.bg2 h1::before {
+    content: 'About';
+    position: absolute;
+    top: 10px;
+    left: 60px;
+}
+
+.bg2 img {
+    width: 550px;
+    height: 500px;
+}
+
+.info {
+    width: 400px;
+    height: 500px;
+    /* border: 1px solid red; */
+    padding: 70px;
+}
+
+.info .a {
+    width: 140px;
+    margin-bottom: 20px;
+    font-size: 25px;
+    background: linear-gradient(to top, #f7f096 50%, transparent 50%);
+    font-weight: 600;
+}
+
+.info .p {
+    margin-bottom: 10px;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.info .l {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.bg3 {
+    background-color: dodgerblue;
+}
+
+.txt-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 800px;
+}
+
+.txt-box .box {
+    margin-right: 20px;
+}
+
+.txt-box .squre {
+    width: 260px;
+    height: 200px;
+    /* border: 1px solid red; */
+    text-align: left;
+}
+
+.txt-box .txt {
+    width: 260px;
+    height: 180px;
+    /* border: 1px solid red; */
+    text-align: left;
+}
+
+.txt-box .txt h3 {
+    font-size: 20px;
+}
+
+.txt-box .txt p {
+    font-size: 18px;
+}
+
+.txt-box>div {
+    transform: translateY(0);
+    animation: skills 0.5s ease-out both;
+    animation-delay: 0s;
+    animation-play-state: paused;
+}
+
+@keyframes skills {
+    0% {
+        transform: translateY(200px)
+    }
+
+    100% {
+        transform: translateY(0)
+    }
+}
+
+.txt-box>div:nth-child(1) {
+    animation-delay: 0.4s;
+}
+
+.txt-box>div:nth-child(2) {
+    animation-delay: 0.8s;
+}
+
+.txt-box>div:nth-child(3) {
+    animation-delay: 1.2s;
+}
+
+.txt-box>div:nth-child(4) {
+    animation-delay: 1.6s;
+}
+
+.txt-box>div:nth-child(5) {
+    animation-delay: 2s;
+}
+
+.bg4 {
+    background-color: slateblue;
+    /* height: 100vh;
+    display: flex;
+    align-items: center;  */
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+}
+
+.cite {
+    display: flex;
+}
+
+.cite img {
+    width: 700px;
+    height: 600px;
+}
+
+.seoul {
+    /* border: 1px solid rebeccapurple; */
+    width: 350px;
+    height: 400px;
+}
+
+.seoul p {
+    margin-bottom: 3px;
+}
+
+.seoul .button {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.seoul .number {
+    font-size: 35px;
+    margin-bottom: 20px;
+    color: darkmagenta;
+}
+
+.seoul .button a {
+    display: block;
+    overflow: hidden;
+    position: relative;
+    width: 120px;
+    height: 50px;
+    border: 1px solid black;
+    margin-right: 20px;
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.seoul .button a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: royalblue;
+    left: -100%;
+    top:0;
+    transition: all 0.5s;
+    z-index:-1
+}
+
+.seoul .button a:hover::after {
+    left: 0;
+}
+
+.seoul .button a:hover {
+    /* background-color: royalblue; */
+    color: white;
+    /* border: none; */
+}
+
+/* .seoul .button a::before {
+    content: '';
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    box-shadow: inset 0px 0px 0px #6098FF;
+    display: block;
+    -webkit-transition: all 0.4s cubic-bezier(.5, .24, 0, 1);
+    transition: all 0.4s cubic-bezier(.5, .24, 0, 1)
+}
+
+/* if you want it to show from the right use -300px instead */
+.seoul .button a:hover::before {
+    box-shadow: inset 300px 0px 0px #6098FF;
+}
+
+.bg5 {
+    background-color: #f7f096;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* .three-slide {
+    height: 900px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} */
+
+
+.three-slide div {
+    width: 1000px;
+    height: 500px;
+    border: 1px solid black;
+    margin-right: 20px;
+}
+
+.three-slide img {
+    width: 313px;
+    height: 500px;
+    border: 1px solid black;
+    margin-right: 20px;
+}
+
+.bg6 {
+    background-color: lightcyan;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.bg6 div {
+    width: 500px;
+    height: 1000px;
+    /* border: 1px solid red; */
+    text-align: center;
+}
+
+.bg6 .under {
+    font-size: 40px;
+    background: linear-gradient(to top, #f7f096 50%, transparent 50%);
+}
+
+.bg6 .home {
+    font-size: 18px;
+    line-height: 25px;
+    margin-top: 50px;
+}
+
+.bg6 .txt2 {
+    font-size: 16px;
+    margin-top: 20px;
+    line-height: 25px;
+}
+
+.bg6 .bye {
+    width: 300px;
+    height: 300px;
+}
+
+.bg6 .e-mail {
+    margin: 0 auto;
+    width: 200px;
+    padding: 10px;
+    font-size: 20px;
+    font-weight: 500;
+    margin-top: 10px;
+
+    background: linear-gradient(to top, #f7f096 40%, transparent 50%);
+}
+
+.bg6 .footer {
+    width: 100%;
+    height: 80px;
+    color: gray;
+    text-align: center;
+    line-height: 20px;
+    padding-top: 20px;
+}
+
+input {
+    display: none;
+}
+
+label {
+    display: block;
+    width: 40px;
+    height: 30px;
+    margin: 20px 15px;
+    position: relative;
+}
+
+label span {
+    background-color: black;
+    display: block;
+    width: 100%;
+    height: 3px;
+    position: absolute;
+    transition: all 0.5s;
+}
+
+span:nth-child(1) {
+    top: 0%;
+}
+
+span:nth-child(2) {
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 1;
+}
+
+span:nth-child(3) {
+    bottom: 0%;
+}
+
+input:checked+label span:nth-child(1) {
+    top: 50%;
+    transform: translateY(-50%) rotate(320deg)
+}
+
+input:checked+label span:nth-child(2) {
+    opacity: 0;
+}
+
+input:checked+label span:nth-child(3) {
+    bottom: 50%;
+    transform: translateY(50%) rotate(-320deg)
+}
